@@ -5,12 +5,12 @@ var loss = 0;
 var previous = 0;
 
 var restartGame = function(){
-$(".crystal").empty();
+$(".crystals").empty();
 
-var images = 'https://www.gaia.com/wp-content/uploads/article-migration-image-how-to-work-with-crystals.png',
-              'https://www.gaia.com/wp-content/uploads/article-migration-image-how-to-work-with-crystals.png',
-              'https://www.gaia.com/wp-content/uploads/article-migration-image-how-to-work-with-crystals.png',
-              'https://www.gaia.com/wp-content/uploads/article-migration-image-how-to-work-with-crystals.png';
+var images = ['./assets/images/crystal1.jpg',
+              './assets/images/crystal2.jpg',
+              './assets/images/crystal3.jpg',
+              './assets/images/crystal4.jpg'];
 
 
 randomResult = Math.floor(Math.random() * 69) + 30;
@@ -27,14 +27,13 @@ for(var i = 0; i < 4; i++){
       "class": 'crystal',
       "data-random": random
   });
-  crystal.css({
-    "background-image":"url'" + (images[i]) + "'"
-  });
+ 
+  crystalPic = $("<img src =' " + images[i] + "'/>");
+ crystal.append(crystalPic);
 
   $(".crystals").append(crystal);
 
 }
-  $("#previous").html("Score: " + previous);
 
 }
 restartGame();
@@ -68,4 +67,6 @@ $(document).on('click', ".crystal", function () {
     previous = 0;
 
   }
+  $("#previous").html("Score: " + previous);
+
 });
